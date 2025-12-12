@@ -6,4 +6,5 @@ import {createSession} from "./handlers.js";
 const router = Router();
 
 router.post("/create", CreateSessionSchema, createSession);
+
 export {router};

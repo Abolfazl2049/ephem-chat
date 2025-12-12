@@ -11,6 +11,7 @@ import routeProtector from "./gears/route-protector.js";
 import {requestLogger} from "./gears/logger.js";
 import {APP_PORT} from "./services/shared/constants/index.js";
 import "./libs/cron/index.js"; // initialize cron jobs
+// import "./types/express.js";
 const app = express();
 const swaggerJsonFilePath = await import("../swagger_output.json", {
   with: {type: "json"}

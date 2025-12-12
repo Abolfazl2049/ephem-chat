@@ -6,6 +6,7 @@ class Session extends Model {
   declare name: string;
   declare user: DataTypes.AbstractDataTypeConstructor;
   declare expiresAt: Date;
+  declare token: string;
 }
 Session.init(
   {

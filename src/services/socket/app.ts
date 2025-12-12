@@ -1,5 +1,7 @@
 import {Server as HTTPServer} from "http";
 import {Server} from "socket.io";
+import {registerMatchingNamespace} from "./matching/handler.js";
+import {registerSignalingNamespace} from "./signaling/handler.js";
 
 let io: Server;
 
@@ -11,13 +13,9 @@ const initSocketIO = (server: HTTPServer) => {
     }
   });
 
-  io.on("connection", socket => {
-    console.log("User connected:", socket.id);
-
-    socket.on("disconnect", () => {
-      console.log("User disconnected:", socket.id);
-    });
-  });
+  // Register namespaces
+  registerMatchingNamespace(io);
+  registerSignalingNamespace(io);
 
   return io;
 };
